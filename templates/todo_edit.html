@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Edit To-Do{% endblock  %}
+{% block content %}
+<div class="container my-3">
+    <h2 class="my-4">EDIT TODO</h2>
+    <form method="post" action="/todo/update/{{ todo.id }}">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" value="{{ todo.title }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" name="description" value="{{ todo.description }}" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" {% if todo.done %}checked{% endif %}>
+            <label class="form-check-label" for="exampleCheck1">Mark As Done</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>     
+</div>
+{% endblock content %}
